@@ -1,4 +1,4 @@
-Web Technologies Lab 5_Lab 6
+# Web Technologies Lab 5_Lab 6
 
 In this lab, we studied and implemented different CSS layout techniques and responsive design concepts. The main focus was on understanding how web pages are structured using CSS properties such as display, float, positioning, Flexbox, and CSS Grid. We also learned how to create responsive designs using media queries for different screen sizes.
 
