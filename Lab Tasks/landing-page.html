@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Layout Techniques and Responsive Design</title>
+    <style>
+      /* Task 15: Mobile-First Landing Page - */
+
+      /* Base styles for mobile devices */
+      body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        line-height: 1.6;
+      }
+
+      /* Header section */
+      header {
+        background: #2c3e50;
+        color: white;
+        padding: 5px;
+        text-align: center;
+      }
+      h1 {
+        background-color: white;
+        text-align: center;
+        font-size: 20px;
+      }
+      li {
+        list-style: none;
+        margin-bottom: 15px;
+        text-align: center;
+      }
+
+      li a {
+        color: black;
+      }
+
+      li a:hover {
+        color: navy;
+        cursor: pointer;
+      }
+
+      /* Hero section with responsive image */
+      .hero {
+        background: #fff;
+        padding: 20px;
+        text-align: center;
+      }
+      /* Responsive images */
+      .hero img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+      }
+
+      /* all to Action */
+      .hero .cta {
+        display: inline-block;
+        margin-top: 15px;
+        padding: 10px;
+        border: 2px solid black;
+        color: black;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: bold;
+      }
+
+      /* Features Section */
+      .features {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        padding: 20px;
+      }
+
+      .feature {
+        background: white;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+
+      .feature h3 {
+        margin-top: 0;
+      }
+
+      /* Footer */
+      footer {
+        background: #34495e;
+        color: white;
+        text-align: center;
+        padding: 15px;
+        font-size: 14px;
+      }
+
+      /* Responsive Design */
+
+      /* Tablet */
+      @media screen and (min-width: 601px) {
+        header h1 {
+          font-size: 28px;
+        }
+        header p {
+          font-size: 16px;
+        }
+        .features {
+          flex-direction: row;
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+
+        .feature {
+          flex: 1 1 45%;
+        }
+      }
+
+      /* Desktop */
+      @media screen and (min-width: 992px) {
+        header h1 {
+          font-size: 32px;
+        }
+        header p {
+          font-size: 18px;
+        }
+        .feature {
+          flex: 1 1 30%;
+        }
+
+        .hero img {
+          max-width: 600px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <h2>Landing Page</h2>
+    </header>
+    <h1>Task 15: Mobile-First Landing Page</h1>
+    <li><a href="/index.html">Home Page</a></li>
+
+    <!-- Hero section with responsive image and CTA -->
+    <section class="hero">
+      <img src="images/card9.jpg" alt="Landing Hero" />
+      <a href="#features" class="cta">Explore Features</a>
+    </section>
+
+    <!-- Part 5: Features Section -->
+    <section id="features" class="features">
+      <div class="feature">
+        <h3>Responsive Design</h3>
+        <p>It is Responsive Design Box.</p>
+      </div>
+      <div class="feature">
+        <h3>Fast Performance</h3>
+        <p>It is Fast Performance Box.</p>
+      </div>
+      <div class="feature">
+        <h3>Easy to Customize</h3>
+        <p>It is Easy to Customize Box.</p>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>&copy; Landing Page</footer>
+  </body>
+</html>

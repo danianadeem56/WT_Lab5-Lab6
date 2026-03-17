@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSS Layout Techniques and Responsive Design</title>
+<style>
+/* Task 11: Responsive CSS Grid Magazine Layout */
+body {
+    margin:0;
+    font-family: Arial, Helvetica, sans-serif;
+    background:#f4f4f4;
+}
+
+/* Header */
+header {
+    background:#2c3e50;
+    color:white;
+    padding:20px;
+    text-align:center;
+}
+
+header h1 { 
+    margin:0; font-size:32px; 
+}
+h1{
+    text-align: center;
+    margin-top: 2%;
+    font-size: 20px;
+}
+
+li {
+    list-style: none;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+li a {
+    color: black;
+}
+
+li a:hover {
+    color: navy;
+    cursor: pointer;
+}
+
+/* Magazine Grid */
+.magazine {
+    display:grid;
+    grid-template-columns: 2fr 1fr 1fr; 
+    gap:20px;
+    padding:20px;
+}
+
+.article {
+    background:white;
+    border-radius:8px;
+    overflow:hidden;
+    box-shadow:0 2px 5px rgba(0,0,0,0.2);
+    display:flex;
+    flex-direction:column;
+}
+
+.article img {
+    width:100%;
+    height:auto;
+    display:block;
+}
+
+.article-content {
+    padding:15px;
+}
+
+.article-content h2 {
+    margin: 0;
+    font-size:24px;
+}
+
+.article-content p {
+    margin: 2px;
+    font-size:16px;
+    line-height: 1.5;
+}
+
+/* Responsive Design */
+
+/* Tablet */
+@media screen and (max-width:992px) {
+    header h1 { 
+        font-size:28px; 
+    }
+    h1{
+        font-size: 20px;
+    }
+    .magazine {
+        grid-template-columns: 1fr 1fr;
+    }
+    .article-content h2 { 
+        font-size:22px; 
+    }
+    .article-content p { 
+        font-size:15px; 
+    }
+}
+
+/* Mobile */
+@media screen and (max-width:600px) {
+    header h1 { 
+        font-size:24px; 
+    }
+    .magazine {
+        grid-template-columns:1fr;
+    }
+    .article-content h2 { 
+        font-size:20px; 
+    }
+    .article-content p { 
+        font-size:14px; 
+    }
+}
+</style>
+</head>
+<body>
+
+<header>
+    <h1>CSS Magazine Layout</h1>
+</header>
+<h1>Task 11: Responsive CSS Grid Magazine Layout</h1>
+<li><a href="/index.html">Home Page</a></li> 
+<div class="magazine">
+    <!-- Articles -->
+    <div class="article">
+        <img src="images/a1.jpg" alt="Article 1">
+        <div class="article-content">
+            <h2>Article 1</h2>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ea, asperiores!</p>
+        </div>
+    </div>
+    <div class="article">
+        <img src="images/a2.jpg" alt="Article 2">
+        <div class="article-content">
+            <h2>Article 2</h2>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ea, asperiores!</p>
+        </div>
+    </div>
+    <div class="article">
+        <img src="images/a3.jpg" alt="Article 3">
+        <div class="article-content">
+            <h2>Artical 3</h2>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ea, asperiores!</p>
+        </div>
+    </div>
+    <div class="article">
+        <img src="images/a4.jpg" alt="Article 4">
+        <div class="article-content">
+            <h2>Article 4</h2>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ea, asperiores!</p>
+        </div>
+    </div>
+
+
+</body>
+</html>

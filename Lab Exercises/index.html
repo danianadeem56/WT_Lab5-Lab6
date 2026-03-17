@@ -1,0 +1,1579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Layout Techniques and Responsive Design-Lab Exercises</title>
+</head>
+<body>
+    <style>
+        * {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+h1{
+    text-align: center;
+    font-size: 20px;
+}
+li {
+    list-style: none;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+li a {
+    color: black;
+}
+
+li a:hover {
+    color: navy;
+    cursor: pointer;
+}
+
+section {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+h2 { 
+    color: black; 
+}
+h3 { 
+    color: black;
+    margin-top: 15px; 
+    font-size: 20px;
+    font-weight: bold;
+}
+li{
+    list-style: none;
+    margin-bottom: 2%;
+}
+li a{
+    color: black;
+}
+li a:hover{
+    cursor: pointer;
+    color: navy;
+}
+/* Part A: Display Property Fundamentals */
+
+/* Exercise 1: Display Property Values */
+
+/* display:block */
+.block {
+    display: block;
+    background: rgb(210, 193, 226);
+    padding: 10px;
+    margin: 5px 
+}
+
+/* display:inline */
+.inline {
+    display: inline;
+    background: pink;
+    padding: 10px;
+    margin-right: 5px;
+}
+
+/* display:inline-block */
+.inlineblock {
+    display: inline-block;
+    background: rgb(194, 157, 144);
+    width: 200px;
+    height: 80px;
+    margin: 5px;
+    text-align: center;
+    line-height: 80px;
+    color: white;
+}
+
+/* display:none vs visibility:hidden */
+.none {
+    display: none; /* no space taken */
+    background: red;
+    color: white;
+    padding: 10px;
+}
+.hidden {
+    visibility: hidden; /* space reserved */
+    background: purple;
+    color: white;
+    padding: 10px;
+}
+
+/* Exercise 2: Display in Navigation */
+
+/* Horizontal Navigation  */
+.horizontal li {
+    display: inline-block;
+    background: #71add3;
+    padding: 10px 15px;
+    margin-right: 5px;
+    list-style: none;
+    cursor: pointer;
+}
+
+/* Vertical Navigation */
+.vertical li {
+    display: block;
+    background: rgb(132, 161, 89);
+    padding: 10px 15px;
+    margin-bottom: 5px;
+    width: 150px;
+    list-style: none;
+    cursor: pointer;
+}
+/* Dropdown Menu */
+.dropdown {
+    display: inline-block;
+    position: relative;
+    background: palevioletred;
+    padding: 10px 15px;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+}
+.submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: pink;
+    padding: 10px;
+    min-width: 50px;
+    z-index: 10;
+}
+.dropdown:hover .submenu {
+    display: block;
+}
+
+/*  Table Layout without table markup */
+.table {
+    display: table;
+    border: 1px solid black;
+    margin-top: 10px;
+}
+.row { 
+    display: table-row; 
+}
+.cell {
+    display: table-cell;
+    border: 2px double black;
+    padding: 10px;
+    min-width: 50px;
+    text-align: center;
+}
+
+/* Part B: Float-Based Layouts */
+
+/* Exercise 3: Basic Float Implementation */
+
+/* Float images with text wrapping */
+.floatimg {
+    float: left;
+    width: 150px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+/* Two-column layout */
+.column {
+    float: left;
+    width: 30%;
+    background: rgb(100, 86, 86);
+    padding: 20px;
+    margin: 1%;
+    box-sizing: border-box;
+    color: white;
+}
+
+/* Three-column layout */
+.three {
+    float: left;
+    width: 30%;
+    background: #0f576e;
+    padding: 20px;
+    margin: 1%;
+    box-sizing: border-box;
+    color: white;
+}
+
+/* Clearfix */
+.clearfix::after{
+    content: "";
+    display: table;
+    clear:both;
+}
+
+/* Exercise 4: Float Challenges */
+
+/* Handle float collapse with clearfix */
+.float-container {
+    overflow: hidden;
+}
+
+/* Equal height columns with flex fallback */
+.equal-columns {
+    float: right;
+    width: 30%;
+    background: #da843f;
+    padding: 20px;
+    margin: 1%;
+    box-sizing: border-box;
+    height: 150px;
+    text-align: center;
+}
+
+/* Float-based grid system */
+.grid-float {
+    float: left;
+    width: 30%;
+    background: #439e94;
+    color: white;
+    padding: 20px;
+    margin: 1%;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+/* Responsive floats */
+@media(max-width:768px){
+    .column, .three, .equal-columns, .grid-float {
+        width: 100%;
+        margin: 5px 0;
+    }
+}
+
+/* Part C: CSS Positioning */
+
+/* Exercise 5: Position Property Values */
+
+/* position: static (default) */
+.static-box {
+    position: static;
+    background: peachpuff;
+    padding: 10px;
+    margin: 5px ;
+}
+
+/* position: relative */
+.relative-box {
+    position: relative;
+    top: 10px;
+    left: 50px;
+    background: #2a9d8f;
+    color: white;
+    padding: 10px;
+    width: 90%;
+}
+
+/* position: absolute */
+.absolute-container {
+    position: relative; 
+    height: 200px;
+    background: plum;
+    margin-top: 20px;
+}
+.absolute-box {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    background: purple;
+    color: white;
+    padding: 10px;
+}
+
+/* position: fixed */
+.fixed-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #e43da4;
+    color: white;
+    padding: 10px;
+}
+
+/* position: sticky */
+.sticky-header {
+    position: sticky;
+    top: 0;
+    background: #546d66;
+    color: white;
+    padding: 10px;
+}
+
+/* Exercise 6: Practical Positioning Scenarios  */
+
+/* Overlapping elements with z-index */
+.layer1 { 
+    position: absolute; 
+    background: peru; 
+    width: 120px; 
+    height: 120px; 
+    top: 20px; 
+    left: 20px; 
+    z-index: 1; 
+}
+.layer2 { 
+    position: absolute; 
+    background: burlywood; 
+    width: 120px; 
+    height: 120px; 
+    top: 60px; 
+    left: 60px; 
+    z-index: 2; 
+}
+
+/* Modal dialog */
+.modal-container {
+    position: relative;
+    height: 150px;
+    margin-top: 20px;
+    background: #f0efeb;
+}
+.modal-box {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    background: #264653;
+    color: white;
+    padding: 10px;
+}
+
+/* Sticky navigation headers (done in Exercise 5) */
+
+/* Tooltip example */
+.tooltip-container {
+    position: relative;
+    display: inline-flex;
+    margin-top: 20px;
+    border: 2px solid black;
+    background-color: pink;
+    padding: 10px;
+}
+.tooltip-text {
+    visibility: hidden;
+    width: 120px;
+    background-color: palevioletred;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 10;
+    bottom: 125%;  
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+.tooltip-container:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Part D: Flexbox Layout System */
+
+/* Exercise 7: Flex Container Properties */
+
+/* display:flex */
+.flex-container {
+    display:flex;
+  flex-wrap:wrap;             
+  background:beige;
+  padding:10px;
+  margin-bottom:10px;
+  gap:10px;
+}
+.flex-items {
+   background:burlywood;
+  padding:20px;
+  text-align:center;
+  flex: 1 1 200px;  
+  max-width:100%;  
+  border: 2px solid black;   
+
+}
+
+/* flex-direction */
+.flex-row { 
+    flex-direction: row; 
+} 
+.flex-row-reverse { 
+    flex-direction: row-reverse; 
+}
+.flex-containersss {
+    display: flex; 
+    background: beige;
+    padding: 10px;
+    margin-bottom: 10px;
+    /* height: 100px; */
+}
+.flex-column { 
+    flex-direction: column; 
+}
+.flex-column-reverse { 
+    flex-direction: column-reverse; 
+}
+
+/* flex-wrap */
+.flex-wrap { 
+    flex-wrap: wrap; 
+} 
+.flex-nowrap { 
+    flex-wrap: nowrap; 
+}
+
+.flex-justify-center{ 
+    justify-content:center; 
+}
+.flex-justify-space-between{ 
+    justify-content:space-between;
+}
+.flex-justify-space-around{ 
+    justify-content:space-around; 
+}
+
+.flex-align-start{ 
+    align-items:flex-start; 
+}
+.flex-align-center{ 
+    align-items:center; 
+}
+.flex-align-end{ 
+    align-items:flex-end; 
+}
+
+/* align-content */ 
+.align-content-space-between { 
+    align-content: space-between; 
+    height: 200px; 
+    flex-wrap: wrap; 
+}  
+
+/* Exercise 8: Flex Item Properties */
+.flex-containerss{
+    display: flex; 
+    background: beige;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.flex-itemss{
+    color: black;
+    padding: 20px;
+    margin: 5px;
+    text-align: center;
+    background-color: burlywood;
+}
+/* flex-grow */
+.flex-grow { 
+    flex-grow: 1; 
+} 
+
+/* flex-shrink */
+.flex-shrink { 
+    flex-shrink: 1; 
+} 
+
+/* flex-basis */
+.flex-basis { 
+    flex-basis: 150px; 
+} 
+
+/* flex shorthand */
+.flex-all { 
+    flex: 2 1 100px; 
+} 
+
+/* align-self */
+.align-self-center { 
+    align-self: center; 
+} 
+
+/* order */
+.order-2 { 
+    order: 4; 
+} 
+.order-1 { 
+    order:5; 
+}
+
+/* Exercise 9: Flexbox Practical Layouts */
+
+/* Responsive navigation bar */
+.navbar {
+    display: flex; 
+    background: saddlebrown;
+    padding: 10px;
+    flex-wrap: wrap;
+}
+.navbar a {
+    color: black;
+    text-decoration: none;
+    padding: 10px 15px;
+    margin: 5px;
+    background: burlywood;
+    border-radius: 5px;
+}
+.navbar a:hover { 
+    background: black; 
+}
+
+/* Card layout */
+.card-container {
+    display: flex; 
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.card {
+    background: skyblue;
+    color: white;
+    padding: 20px;
+    flex: 1 1 200px;
+    text-align: center;
+}
+
+/* Holy Grail layout */
+.holy-grail {
+    display: flex; 
+
+}
+.sidebar { 
+    background: #dda20b; 
+    padding: 10px; 
+    width: 200px; 
+}
+.content { 
+    background: #da6e16; 
+    flex: 1; 
+    padding: 10px; 
+}
+
+/* Complex form layout */
+.form-flex {
+    display: flex; 
+    gap: 15px;
+}
+.form-flex input, .form-flex select, .form-flex textarea {
+    flex: 1 1 200px;
+    padding: 5px;
+}
+
+.flex-container{
+    display:flex;
+    background:beige;
+    padding:10px;
+    margin-bottom:10px;
+}
+
+/* Part E: CSS Grid Layout System */
+
+/* Exercise 10: Grid Container Properties */
+
+/* display:grid */
+.grid-container {
+    display: grid; 
+    background-color: rgb(247, 242, 242);
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+/* grid-template-columns */
+.grid-cols-3 { 
+    grid-template-columns: 1fr 1fr 1fr; 
+} 
+
+/* grid-template-rows */
+.grid-rows-2 { 
+    grid-template-rows: 100px 100px; 
+} 
+
+/* grid-template-areas */
+.grid-areas {
+    grid-template-areas:
+        "header header"
+        "sidebar content"
+        "footer footer"; 
+}
+
+/* gap */
+.grid-gap { 
+    gap: 15px; 
+}
+
+/* justify-items and align-items */
+.grid-justify-center{ justify-items:center; }
+.grid-align-center{ align-items:center; }
+
+/* Exercise 11: Grid Item Properties */
+
+/* grid-column */
+.grid-col-span-2 { 
+    grid-column: span 2; 
+} 
+
+/* grid-row */
+.grid-row-span-2 { 
+    grid-row: span 2;
+ } 
+
+/* grid-area */
+.header { 
+    grid-area: header; 
+    background:#2a9d8f; 
+    color:white; 
+    padding:10px; 
+    text-align:center; 
+}
+.sidebar { 
+    grid-area: sidebar; 
+    background:skyblue; 
+    padding:10px; 
+}
+.content { 
+    grid-area: content; 
+    background:rgb(67, 127, 151); 
+    padding:10px; 
+}
+.footer { 
+    grid-area: footer; 
+    background:#2a9d8f; 
+    color:white; 
+    padding:10px; 
+    text-align:center; 
+}
+
+/* justify-self and align-self */
+.justify-self-center { 
+    justify-self: center; 
+} 
+.align-self-center { 
+    align-self: center; 
+}
+
+/*  Exercise 12: Advanced Grid Features */
+
+/* Fractional units, minmax(), repeat(), auto-fit/auto-fill */
+.grid-advanced {
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+    background: #f0f0f0;
+    padding: 10px;
+}
+.grid-item {
+    background: palevioletred;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    border: 2px solid black;
+}
+
+/* Part F: Media Queries & Responsive Design */
+   
+/* Exercise 13: Media Query Fundamentals */
+
+/* Base styles for demonstration */
+.demo-box {
+    width: 100%;
+    max-width: 600px;
+    margin: 10px auto;
+    padding: 20px;
+    text-align: center;
+    background-color: #2a9d8f; 
+    color: white;
+    font-size: 16px;
+}
+
+/* min-width / max-width queries */
+@media (max-width: 768px) { 
+    .demo-box {
+        background-color: #2a9d8f;
+        font-size: 14px;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .demo-box {
+        background-color: #2a9d8f;
+        font-size: 18px;
+    }
+}
+
+@media (min-width: 1025px) {
+    .demo-box {
+        background-color: #0f576e;
+        font-size: 20px;
+    }
+}
+
+/* Device orientation */
+@media (orientation: portrait) { 
+    .orientation-box {
+        background-color: #2a9d8f;
+    }
+}
+@media (orientation: landscape) {
+    .orientation-box {
+        background-color: #118ab2;
+    }
+}
+
+/* Media features hover, pointer, aspect-ratio */
+@media (hover: hover) and (pointer: fine) {
+    .hover-box:hover {
+        background-color: #f72585; 
+    }
+}
+@media (aspect-ratio: 16/9) {
+    .ratio-box {
+        background-color: #7209b7;
+    }
+}
+
+/* Exercise 14: Mobile-First Approach */
+
+/* Base mobile styles */
+.mobile-box {
+    width: 100%;
+    padding: 20px;
+    background-color: #439e94;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+/* Tablet styles */
+@media (min-width: 768px) { 
+    .mobile-box {
+        background-color: #0f576e;
+        font-size: 18px;
+    }
+}
+
+/* Desktop styles */
+@media (min-width: 1024px) {
+    .mobile-box {
+        background-color: #219ebc;
+        font-size: 20px;
+    }
+}
+
+/* Progressive enhancement */
+.progressive-box {
+    background-color: #8ecae6;
+    padding: 20px;
+    margin: 10px;
+    text-align: center;
+}
+@media (min-width: 768px) {
+    .progressive-box {
+        border-radius: 15px;
+        font-size: 18px;
+    }
+}
+@media (min-width: 1024px) {
+    .progressive-box {
+        border: 2px solid #023047;
+        font-size: 22px;
+    }
+}
+
+/* Exercise 15: Responsive Images */
+
+/* srcset / picture element handled in HTML */
+
+/* Responsive background images */
+.responsive-bg {
+    width: 100%;
+    height: 200px;
+    background-image: url('uet.png');
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 10px;
+}
+@media (max-width: 768px) {
+    .responsive-bg {
+        background-image: url('uet.png');
+    }
+}
+
+/* High-density screens */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .responsive-bg {
+        background-image: url('uet.png');
+    }
+}
+
+/* Part G: Layout Combinations */
+
+/* Exercise 16: Combining Layout Techniques */
+
+/* Flexbox within Grid Items */
+.grid-containers {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    background-color: #000; 
+    padding: 10px;
+}
+
+.grid-items {
+    background-color: blueviolet; 
+    padding: 20px;
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+/* Grid inside Flex Containers */
+.flex-containers {
+    display: flex;
+    gap: 10px;
+    background-color: brown;
+    padding: 10px;
+}
+
+.flex-item {
+    flex: 1;
+    padding: 10px;
+    background-color: blanchedalmond;
+    display: grid; 
+    grid-template-columns: 1fr 1fr;
+    gap: 5px;
+}
+
+.flex-item div {
+    background-color: burlywood;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+/* Combining floats with modern layout methods */
+.float-container {
+    background-color: #367a99;
+    padding: 10px;
+    overflow: auto; 
+    margin-bottom: 20px;
+}
+
+.float-left {
+    float: left;
+    width: 35%;
+    margin-right: 5%;
+    background-color: #023047;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.float-right {
+    float: right;
+    width: 30%;
+    background-color: rgb(55, 55, 112);
+    color: #000;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Mixed techniques complex layout */
+.complex-layout {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 10px;
+    background-color: skyblue;
+    padding: 10px;
+}
+
+.complex-left {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+}
+
+.complex-left div {
+    background-color: seagreen;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.complex-right {
+    background-color: #2a9d8f;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+
+
+
+/* ================= FLOATS ================= */
+@media (max-width: 768px) {
+    .column, .three, .equal-columns, .grid-float, .float-left, .float-right {
+        width: 100% !important;
+        margin: 5px 0 !important;
+        float: none !important;
+    }
+}
+
+/* ================= FLEXBOX ================= */
+/* FLEX CONTAINER DESKTOP FIX */
+.flex-container, .flex-containerss, .flex-containers, .card-container, .form-flex {
+    flex-wrap: wrap; /* allow wrapping on small screens */
+}
+.flex-container .flex-items, .flex-containerss .flex-itemss, .card-container .card, .form-flex > * {
+    min-width: 150px; /* prevent shrinking too small */
+    flex: 1 1 auto;
+}
+/* Holy Grail Layout Stack on Mobile */
+@media (max-width: 768px) {
+    .holy-grail {
+        flex-direction: column;
+        display: flex;
+    }
+    .holy-grail .sidebar,.holy-grail content {
+        width: 100%;
+    }
+}
+
+/* ================= GRID ================= */
+.grid-container {
+    grid-auto-rows: minmax(50px, auto); /* prevent row collapse */
+}
+.grid-advanced, .grid-container {
+    width: 100%;
+}
+
+/* ================= NAVIGATION ================= */
+.navbar {
+    flex-wrap: wrap;
+}
+.navbar a {
+    flex: 1 1 100px;
+    text-align: center;
+}
+
+
+
+/* ================= MEDIA QUERY ENHANCEMENTS ================= */
+@media (max-width: 480px) {
+    h1 { font-size: 20px; }
+    h2 { font-size: 18px; }
+    h3 { font-size: 16px; }
+    .demo-box, .mobile-box, .progressive-box {
+        font-size: 14px;
+        padding: 15px;
+    }
+}
+
+</style>
+</head>
+<body>
+    <br>
+    <br>
+    <h1>Lab Exercises</h1>
+    <li><a href="/index.html">Home Page</a></li>
+    
+<section>
+    <!-- Part A -->
+    <h1>Part A: Display Property Fundamentals</h1>
+    <!-- Exercise 1  -->
+    <h2>Exercise 1: Display Property Values</h2>
+
+    <!-- display:block -->
+    <h3>display:block</h3>
+    <div class="block">This is block display</div>
+    <div class="block">This is block display</div>
+
+    <!-- display:inline -->
+    <h3>display:inline</h3>
+    <div class="inline">This is inline display</div>
+    <div class="inline">This is inline display</div>
+
+    <!-- inline-block -->
+    <h3>display:inline-block</h3>
+    <div class="inlineblock">This is inline-block display</div>
+    <div class="inlineblock">This is inline-block display</div>
+
+    <!-- display:none vs visibility:hidden -->
+    <h3>display:none vs visibility:hidden</h3>
+    <div class="none">this is none display</div>
+    <div class="hidden">This is visibility:hidden</div>
+
+     <!-- Exercise 2 -->
+     <h2>Exercise 2: Display in Navigation</h2>
+
+     <!-- Horizontal Navigation -->
+     <h3>Horizontal Navigation</h3>
+     <ul class="horizontal">
+         <li>Home</li>
+         <li>About</li>
+         <li>Contact</li>
+     </ul>
+ 
+     <!-- Vertical Navigation -->
+     <h3>Vertical Navigation</h3>
+     <ul class="vertical">
+         <li>Home</li>
+         <li>About</li>
+         <li>Contact</li>
+     </ul>
+ 
+     <!-- Dropdown Menu -->
+     <h3>Dropdown Menu</h3>
+     <div class="dropdown">
+        Menu
+         <div class="submenu">
+             <p>Pizza</p>
+             <p>Burger</p>
+             <p>Steak</p>
+         </div>
+     </div>
+ 
+     <!-- Table Layout without table markup -->
+     <h3>Table Layout without Table Markup</h3>
+     <div class="table">
+         <div class="row">
+             <div class="cell">Name</div>
+             <div class="cell">Age</div>
+             <div class="cell">City</div>
+         </div>
+         <div class="row">
+             <div class="cell">Dania</div>
+             <div class="cell">20</div>
+             <div class="cell">Peshawar</div>
+         </div>
+         <div class="row">
+             <div class="cell">Ayesha</div>
+             <div class="cell">18</div>
+             <div class="cell">Peshawar</div>
+         </div>
+     </div>
+</section>
+
+<section>
+    <!-- Part B -->
+    <h1>Part B: Float-Based Layouts</h1>
+    <!-- Exercise 3 -->
+    <h2>Exercise 3: Basic Float Implementation</h2>
+
+    <!-- Float images with text wrapping -->
+    <h3>Float images with Text Wrapping</h3>
+    <img src="uet.png" class="floatimg">
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Text wraps around the floated image. 
+      You can see how text flows beside a floated image instead of below it.</p>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+    <!-- Two-column layout using floats -->
+    <h3>Two-column layout</h3>
+    <div class="column">This is Two-column Layout.</div>
+    <div class="column">This is Two-column Layout.</div>
+    <div class="clearfix"></div>
+
+    <!-- Three-column layout using floats -->
+    <h3>Three-column layout</h3>
+    <div class="three">This is Three-column Layout.</div>
+    <div class="three">This is Three-column Layout.</div>
+    <div class="three">This is Three-column Layout.</div>
+    <div class="clearfix"></div>
+
+    <!-- Clearfix Example -->
+    <h3>Clearfix</h3>
+    <p class="clearfix">This Paragraph clear previous Floats.</p>
+
+    <!-- Exercise 4 -->
+    <h2>Exercise 4: Float Challenges and Solutions</h2>
+
+    <!--  Handle float collapse with clearfix -->
+    <h3>Float Collapse fix using Container</h3>
+    <div class="float-container">
+        <div class="column">This is Float-container.</div>
+        <div class="column">This is Float-container.</div>
+    </div>
+
+    <!-- Equal height columns -->
+    <h3>Equal height columns</h3>
+    <div class="equal-columns">This is Equal Height Columns.</div>
+    <div class="equal-columns">This is Equal Height Columns.</div>
+    <div class="clearfix"></div>
+
+    <!-- Float-based grid system -->
+    <h3>Float-based grid system</h3>
+    <div class="grid-float">This is Grid 1</div>
+    <div class="grid-float">This is Grid 2</div>
+    <div class="grid-float">This is Grid 3</div>
+    <div class="clearfix"></div>
+
+    <!-- Responsive floats -->
+    <h3>Responsive Floats with Media Queries</h3>
+    <p>Resize your browser window to see columns stack on mobile screens.</p>
+</section>
+
+<section>
+    <!-- Part C -->
+    <h1>Part C: CSS Positioning</h1>
+    <!-- Exercise 5 -->
+    <h2>Exercise 5: Position Property Values</h2>
+
+    <!-- position: static -->
+    <h3>position: static</h3>
+    <div class="static-box">Static Box (Default position)</div>
+
+    <!-- position: relative -->
+    <h3>position: relative</h3>
+    <div class="relative-box">Relative Box (Offset from normal)</div>
+
+    <!-- position: absolute -->
+    <h3>position: absolute</h3>
+    <div class="absolute-container">
+        <div class="absolute-box">Absolute Box</div>
+    </div>
+
+    <!-- position: fixed -->
+    <h3>position: fixed</h3>
+    <div class="fixed-header">Fixed Header</div>
+    <p >Scroll down to see fixed header effect</p>
+
+    <!-- position: sticky -->
+    <h3>position: sticky</h3>
+    <div class="sticky-header">Sticky Header</div>
+
+
+    <!-- Exercise 6 -->
+    <h2>Exercise 6: Practical Positioning Scenarios</h2>
+
+    <!-- Overlapping elements with z-index -->
+    <h3>Overlapping Elements with z-index</h3>
+    <div style="position:relative; height:200px;">
+        <div class="layer1">Overlapping Layer 1</div>
+        <div class="layer2">Overlapping Layer 2</div>
+    </div>
+
+    <!-- Modal dialog with absolute positioning -->
+    <h3>Modal Dialog with Absolute Positioning</h3>
+    <div class="modal-container">
+        <div class="modal-box">This is Modal Dialog div</div>
+    </div>
+
+    <!--  Tooltip example -->
+    <h3>Tooltip Example</h3>
+    <div class="tooltip-container">
+        Hover me
+        <span class="tooltip-text">This is Tooltip Text</span>
+    </div>
+</section>
+
+     <section>
+        <!-- Part D -->
+        <h1>Part D: Flexbox Layout System</h1>
+        <!-- Exercise 7 -->
+        <h2>Exercise 7: Flex Container Properties</h2>
+    
+        <!-- display:flex -->
+        <h3>display:flex</h3>
+        <div class="flex-container">
+            <div class="flex-items">This is flex-conatiner</div>
+            <div class="flex-items">This is flex-conatiner</div>
+            <div class="flex-items">This is flex-conatiner</div>
+        </div>
+
+        <!-- flex-direction -->
+        <h3>flex-direction</h3>
+        <div class="flex-container flex-row">
+            <div class="flex-items">This is flex-row 1</div>
+            <div class="flex-items">ThisS is flex-row 2</div>
+            <div class="flex-items">This is flex-row 3</div>
+        </div>
+
+        <div class="flex-container flex-row-reverse">
+            <div class="flex-items">This is flex-row-reverse 1</div>
+            <div class="flex-items">This is flex-row-reverse 2</div>
+            <div class="flex-items">This is flex-row-reverse 3</div>
+        </div>
+
+        <div class="flex-containersss flex-column">
+            <div class="flex-items">This is flex-column 1</div>
+            <div class="flex-items">This is flex-column 2</div>
+            <div class="flex-items">This is flex-column 3</div>
+        </div>
+
+        <div class="flex-containersss flex-column-reverse">
+            <div class="flex-items">This is flex-column-reverse 1</div>
+            <div class="flex-items">This is flex-column-reverse 2</div>
+            <div class="flex-items">This is flex-column-reverse 3</div>
+        </div>
+
+        <!-- flex-wrap -->
+        <h3>flex-wrap</h3>
+        <div class="flex-container flex-wrap">
+            <div class="flex-items">This is flex-wrap</div>
+            <div class="flex-items">This is flex-wrap</div>
+            <div class="flex-items">This is flex-wrap</div>
+            <div class="flex-items">This is flex-wrap</div>
+        </div>
+        <div class="flex-container flex-nowrap">
+            <div class="flex-items">This is flex-nowrap</div>
+            <div class="flex-items">This is flex-nowrap</div>
+            <div class="flex-items">This is flex-no-wrap</div>
+            <div class="flex-items">This is flex-no-wrap</div>
+        </div>
+
+         <!-- justify-content -->
+        <h3>justify-content</h3>
+        <!-- <div class="flex-container justify-space-between">
+            <div class="flex-items">This is justify-content space-between</div>
+            <div class="flex-items">This is justify-content space-between</div>
+            <div class="flex-items">This is justify-content space-between</div>
+        </div> -->
+
+        <!-- <div class="flex-container justify-center">
+            <div class="flex-items">This is justify-content center</div>
+            <div class="flex-items">This is justify-content center</div>
+            <div class="flex-items">This is justify-content center</div>
+        </div>
+
+        <div class="flex-container justify-space-around">
+            <div class="flex-items">This is justify-content space-around</div>
+            <div class="flex-items">This is justify-content space-around</div>
+            <div class="flex-items">This is justify-content space-around</div>
+        </div> -->
+       
+        <!-- align-items -->
+        <!-- <h3>align-items</h3>
+        <div class="flex-container align-start">
+            <div class="flex-items">This is align-items Start</div>
+            <div class="flex-items">This is align-items Start</div>
+            <div class="flex-items">This is align-items Start</div>
+        </div>
+        <div class="flex-container align-center">
+            <div class="flex-items">This is align-items center</div>
+            <div class="flex-items">This is align-items center</div>
+            <div class="flex-items">This is align-items center</div>
+        </div>
+        <div class="flex-container align-end">
+            <div class="flex-items">This is align-items End</div>
+            <div class="flex-items">This is align-items End</div>
+            <div class="flex-items">This is align-items End</div>
+        </div> -->
+
+
+        <div class="flex-container flex-justify-space-between">justify-space-between</div>
+            <div class="flex-container flex-justify-center">justify-content</div>
+            <div class="flex-container flex-justify-space-around">justify-space-around</div>
+
+            <div class="flex-container flex-align-start" style="height:120px;">align-start</div>
+                <div class="flex-container flex-align-center" style="height:120px;">flex-align-center</div>
+                <div class="flex-container flex-align-end" style="height:120px;">align-end</div>
+        <!-- align-content -->
+        <h3>align-content</h3>
+        <div class="flex-container align-content-space-between">
+            <div class="flex-items">This is align-content 1</div>
+            <div class="flex-items">This is align-content 2</div>
+            <div class="flex-items">This is align-content 3</div>
+            <div class="flex-items">This is align-content 4</div>
+        </div>
+   
+        <!-- Exercise 8 -->
+        <h2>Exercise 8: Flex Item Properties</h2>
+
+        <!-- flex-grow -->
+        <h3>flex-grow</h3>
+        <div class="flex-containerss">
+            <div class="flex-itemss flex-grow">This is Flex Grow</div>
+            <div class="flex-itemss">This is Flex Normal</div>
+            <div class="flex-itemss">This Flex Normal</div>
+        </div>
+
+        <!-- flex-shrink -->
+        <h3>flex-shrink</h3>
+        <div class="flex-containerss">
+            <div class="flex-itemss flex-shrink">This is Shrink</div>
+            <div class="flex-itemss">This is box</div>
+            <div class="flex-itemss">This is box</div>
+        </div>
+
+        <!-- flex-basis -->
+        <h3>flex-basis</h3>
+        <div class="flex-containerss">
+            <div class="flex-itemss flex-basis">This is flex-basis(basis: 150px)</div>
+            <div class="flex-itemss">This is flex-basis normal</div>
+        </div>
+
+        <!-- flex shorthand -->
+        <h3>flex shorthand</h3>
+        <div class="flex-containerss">
+            <div class="flex-itemss flex-all">This is flex-shortand(Flex: 2 1 100px)</div>
+            <div class="flex-itemss">This is flex-shortand normal</div>
+        </div>
+
+        <!-- align-self -->
+        <h3>align-self</h3>
+        <div class="flex-containerss">
+            <div class="flex-itemss align-self-center">This is align-self center</div>
+            <div class="flex-itemss">This is align-self normal</div>
+        </div>
+
+        <!-- order -->
+        <h3>Order</h3>
+        <div class="flex-containerss">
+            <div class="flex-itemss order-1">This is order first</div>
+            <div class="flex-itemss order-2">This is order second</div>
+            <div class="flex-itemss">This is order third</div>
+        </div>
+
+        <!-- Exercise 9 -->
+        <h2>Exercise 9: Flexbox Practical Layouts</h2>
+
+        <!-- Responsive navigation bar -->
+        <h3>Responsive navigation bar</h3>
+        <div class="navbar">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+        </div>
+
+        <!-- Card layout -->
+        <h3>Card layout</h3>
+        <div class="card-container">
+            <div class="card">Card 1</div>
+            <div class="card">Card 2 </div>
+            <div class="card">Card 3</div>
+        </div>
+
+        <!-- Holy Grail Layout -->
+        <h3>Holy Grail Layout</h3>
+        <div class="holy-grail">
+            <div class="sidebar">This is Sidebar Left</div>
+            <div class="content">This is Main Content</div>
+            <div class="sidebar">This is Sidebar Right</div>
+        </div>
+
+        <!-- Complex Form Layout -->
+        <h3>Complex Form Layout</h3>
+        <form class="form-flex">
+            <input type="text" placeholder="Name">
+            <input type="email" placeholder="Email">
+            <select>
+                <option>Select Gender</option>
+                <option>Male</option>
+                <option>Female</option>
+            </select>
+            <textarea placeholder="Message"></textarea>
+        </form>
+    </section>
+
+    <section>
+        <!-- Part E -->
+        <h1>Part E: CSS Grid Layout System</h1>
+
+        <!-- Exercise 10 -->
+        <h2>Exercise 10: Grid Container Properties</h2>
+    
+        <!-- display:grid -->
+        <h3>display:grid</h3>
+        <div class="grid-container grid-cols-3">
+            <div class="grid-item">Grid 1</div>
+            <div class="grid-item">Grid 2</div>
+            <div class="grid-item">Grid 3</div>
+        </div>
+    
+        <!-- grid-template-columns -->
+        <h3>grid-template-columns</h3>
+        <div class="grid-container grid-cols-3">
+            <div class="grid-item">Grid Template Column 1</div>
+            <div class="grid-item">Grid Template Column 2</div>
+            <div class="grid-item">Grid Template Column 3</div>
+        </div>
+    
+        <!-- grid-template-rows -->
+        <h3>grid-template-rows</h3>
+        <div class="grid-container grid-cols-3 grid-rows-2">
+            <div class="grid-item">Row 1 Column 1</div>
+            <div class="grid-item">Row 1 Column 2</div>
+            <div class="grid-item">Row 1 Column 3</div>
+            <div class="grid-item">Row 2 Column 1</div>
+            <div class="grid-item">Row 2 Column 2</div>
+            <div class="grid-item">Row 2 Column 3</div>
+        </div>
+    
+        <!-- grid-template-areas -->
+        <h3>grid-template-areas</h3>
+        <div class="grid-container grid-areas grid-gap">
+            <div class="header">Header</div>
+            <div class="sidebar">Sidebar</div>
+            <div class="content">Content</div>
+            <div class="footer">Footer</div>
+        </div>
+    
+        <!-- gap -->
+        <h3>gap</h3>
+        <div class="grid-container grid-cols-3 grid-gap">
+            <div class="grid-item">Gap 1</div>
+            <div class="grid-item">Gap 2</div>
+            <div class="grid-item">Gap 3</div>
+        </div>
+    
+        <!-- justify-items and align-items -->
+        <h3>justify-items and align-items</h3>
+        <div class="grid-container grid-cols-3 grid-justify-center grid-align-center">
+            <div class="grid-item">Centered</div>
+            <div class="grid-item">Centered</div>
+            <div class="grid-item">Centered</div>
+        </div>
+    
+    <!-- Exercise 11: Grid Item Properties -->
+        <h2>Exercise 11: Grid Item Properties</h2>
+
+        <!-- grid-column -->
+        <h3>grid-column</h3>
+        <div class="grid-container grid-cols-3 grid-gap">
+            <div class="grid-item grid-col-span-2">This is span (2 Columns)</div>
+            <div class="grid-item">This is normal</div>
+        </div>
+    
+        <!-- grid-row -->
+        <h3>grid-row</h3>
+        <div class="grid-container grid-cols-3 grid-rows-2 grid-gap">
+            <div class="grid-item grid-row-span-2">This is span (2 Rows)</div>
+            <div class="grid-item">This is normal</div>
+            <div class="grid-item">This is normal</div>
+        </div>
+    
+        <!-- grid-area -->
+        <h3>grid-area</h3>
+        <div class="grid-container grid-areas grid-gap">
+            <div class="header">Header</div>
+            <div class="sidebar">Sidebar</div>
+            <div class="content">Content</div>
+            <div class="footer">Footer</div>
+        </div>
+    
+        <!-- justify-self and align-self -->
+        <h3>justify-self and align-self</h3>
+        <div class="grid-container grid-cols-3" style="height:150px;">
+            <div class="grid-item justify-self-center align-self-center">Centered</div>
+            <div class="grid-item">Normal</div>
+            <div class="grid-item">Normal</div>
+        </div>
+  
+    <!-- Exercise 12: Advanced Grid Features -->
+        <h2>Exercise 12: Advanced Grid Features</h2>
+    
+        <div class="grid-advanced">
+            <div class="grid-item">Grid Advanced 1</div>
+            <div class="grid-item">Grid Advanced 2</div>
+            <div class="grid-item">Grid Advanced 3</div>
+            <div class="grid-item">Grid Advanced 4</div>
+            <div class="grid-item">Grid Advanced 5</div>
+            <div class="grid-item">Grid Advanced 6</div>
+        </div>
+    </section>
+
+<section>
+    <!-- Part F -->
+    <h1>Part F: Media Queries & Responsive Design</h1>
+
+    <!-- Exercise 13 -->
+    <h2>Exercise 13: Media Query Fundamentals</h2>
+    <div class="demo-box">Resize browser to see min/max-width changes</div>
+    <div class="orientation-box demo-box">Rotate device to change orientation color</div>
+    <div class="hover-box demo-box">Hover over me</div>
+    <div class="ratio-box demo-box">Aspect ratio 16:9 change color</div>
+
+
+<!-- Exercise 14 -->
+    <h2>Exercise 14: Mobile-First Approach</h2>
+    <div class="mobile-box">Mobile First Base Box</div>
+    <div class="progressive-box">Progressive Enhancement Box</div>
+
+
+<!-- Exercise 15 -->
+    <h2>Exercise 15: Responsive Images</h2>
+
+    <!-- srcset and picture element -->
+    <h3>srcset and picture element</h3>
+    <picture>
+        <source media="(max-width: 768px)" srcset="uet.png">
+        <source media="(min-width: 769px)" srcset="uet.png">
+        <img src="uet.png" alt="Responsive Image" style="width:100%; height:auto;">
+    </picture>
+
+    <h3>Responsive background image</h3>
+    <div class="responsive-bg">Responsive</div>
+
+    <h3>Optimized for high-density screens</h3>
+    <div class="responsive-bg">Optimized</div>
+</section>
+
+<section>
+    <!-- Part G -->
+    <h1>Part G: Layout Combinations and Best Practices</h1>
+
+    <!-- Exercise 16 -->
+    <h2>Exercise 16: Combining Layout Techniques</h2>
+
+    <!-- Flexbox within Grid Items -->
+    <h3>Flexbox inside Grid Items</h3>
+    <div class="grid-containers">
+        <div class="grid-items">
+            <p>Flex Item 1</p>
+            <button>Button 1</button>
+        </div>
+        <div class="grid-items">
+            <p>Flex Item 2</p>
+            <button>Button 2</button>
+        </div>
+    </div>
+
+    <!-- Grid inside Flex Containers -->
+    <h3>Grid inside Flex Containers</h3>
+    <div class="flex-containers">
+        <div class="flex-item">
+            <div>Grid 1</div>
+            <div>Grid 2</div>
+            <div>Grid 3</div>
+            <div>Grid 4</div>
+        </div>
+        <div class="flex-item">
+            <div>Grid 5</div>
+            <div>Grid 6</div>
+            <div>Grid 7</div>
+            <div>Grid 8</div>
+        </div>
+    </div>
+
+    <!-- Combining floats with modern layout methods -->
+    <h3>Combining Floats with Modern Layout Methods</h3>
+    <div class="float-container">
+        <div class="float-left">Float Left Box</div>
+        <div class="float-right">Float Right Box</div>
+    </div>
+
+    <!-- Mixed techniques complex layout -->
+    <h3>Complex Layout with Mixed Techniques</h3>
+    <div class="complex-layout">
+        <div class="complex-left">
+            <div>Left Top Flex</div>
+            <div>Left Bottom Flex</div>
+        </div>
+        <div class="complex-right">Right Grid/Flex</div>
+    </div>
+
+</section>
+</body>
+</html>

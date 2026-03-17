@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CSS Layout Techniques and Responsive Design</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+   body{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+   }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #2c3e50;;
+      color: white;
+      padding: 10px 20px;
+      position: relative;
+    }
+
+    header h1 {
+      font-size: 20px;
+    }
+    nav ul {
+      display: flex;
+      list-style: none;
+    }
+
+    nav li {
+      position: relative;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: white;
+      padding: 8px 12px;
+      display: block;
+      font-size: 14px;
+      transition: 0.3s;
+    }
+
+    nav a:hover,nav a:focus{
+      background-color: whitesmoke;
+      color: #2c3e50;
+    }
+
+    /* Dropdown */
+    nav li ul {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: #2c3e50;
+      list-style: none;
+      display: none;
+      min-width: 150px;
+    }
+
+    nav li:hover > ul {
+      display: block;
+    }
+
+    nav li ul li {
+      margin: 0;
+    }
+
+    nav li ul a {
+      padding: 10px;
+      font-size: 13px;
+    }
+
+    /* Toggle Button */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .menu-toggle span {
+      height: 3px;
+      width: 25px;
+      background: white;
+      margin: 4px 0;
+      transition: 0.3s;
+    }
+    .content {
+      margin: 20px;
+      text-align: center;
+    }
+    .content h1{
+      font-size: 20px;
+    }
+    .content p{
+      margin-top: 15px;
+      font-size: 18px;
+    }
+    /* Responsive Design */
+      @media (max-width: 768px) {
+  nav {
+    position: absolute;
+    top: 60px;
+    left: -250px; 
+    width: 200px;
+    background: #2c3e50;
+    height: calc(100vh - 60px); /* viewport height minus header */
+    max-height: calc(100vh - 60px); /* ensure scroll works */
+    overflow-y: auto; /* scroll if content is long */
+    transition: 0.3s;
+    padding-top: 10px;
+    z-index: 1000;
+  }
+
+  nav ul {
+    flex-direction: column;
+  }
+
+  nav li {
+    margin: 0;
+  }
+
+  nav li ul {
+    position: static;
+  }
+
+  #menu-toggle:checked + nav {
+    left: 0;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
+      /* nav {
+        position: absolute;
+        top: 60px;
+        left: -250px; 
+        width: 200px;
+        background: #2c3e50;
+        height: calc(100vh - 60px);
+        transition: 0.3s;
+        overflow-y: auto;
+        padding-top: 10px;
+        z-index: 1000;
+      }
+
+      nav ul {
+        flex-direction: column;
+      }
+
+      nav li {
+        margin: 0;
+      }
+
+      nav li ul {
+        position: static;
+      }
+      #menu-toggle:checked + nav {
+        left: 0;
+      }
+
+      .menu-toggle {
+        display: flex;
+      } */
+      .content {
+      margin: 20px;
+      text-align: center;
+    }
+    .content h1{
+      font-size: 18px;
+    }
+    .content p{
+      margin-top: 15px;
+      font-size: 16px;
+    }
+    }
+    
+  
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Home Page</h1>
+    <!-- Toggle Button -->
+    <label for="menu-toggle" class="menu-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </label>
+    <input type="checkbox" id="menu-toggle" style="display:none;" />
+
+    <nav>
+      <ul>
+        <li>
+            <a href="#">Lab Exercise ▼</a>
+            <ul>
+              <li><a href="/Lab Exercises/index.html">Exercises</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">Lab Tasks ▼</a>
+            <ul>
+                
+              <li><a href="/Lab Tasks/display.html">Tasks 1</a></li>
+              <li><a href="/Lab Tasks/float-magazine.html">Tasks 2</a></li>
+              <li><a href="/Lab Tasks/positioning.html">Tasks 3</a></li>
+              <li><a href="/Lab Tasks/flex-navigation.html">Tasks 4</a></li>
+              <li><a href="/Lab Tasks/flex-cards.html">Tasks 5</a></li>
+              <li><a href="/Lab Tasks/grid-gallery.html">Tasks 6</a></li>
+              <li><a href="/Lab Tasks/holy-grail.html">Tasks 7</a></li>
+              <li><a href="/Lab Tasks/ecommerce.html">Tasks 8</a></li>
+              <li><a href="/Lab Tasks/dashboard.html">Tasks 9</a></li>
+              <li><a href="/Lab Tasks/media-query.html">Tasks 10</a></li>
+              <li><a href="/Lab Tasks/grid-magazine.html">Tasks 11</a></li>
+              <li><a href="/Lab Tasks/flex-form.html">Tasks 12</a></li>
+              <li><a href="/Lab Tasks/portfolio.html">Tasks 13</a></li>
+              <li><a href="/Lab Tasks/responsive-table.html">Tasks 14</a></li>
+              <li><a href="/Lab Tasks/landing-page.html">Tasks 15</a></li>
+              <li><a href="/Lab Tasks/breakpoints.html">Tasks 16</a></li>
+              <li><a href="/Lab Tasks/utility-classes.html">Tasks 17</a></li>
+              <li><a href="/Lab Tasks/dark-mode.html">Tasks 18</a></li>
+              
+            </ul>
+          </li>
+    </nav> 
+  </header>
+
+  <div class="content">
+    <h2>Welcome to Home Page</h2>
+    <p>This is Home Page. From this home page, you can easily access all Lab Exercises and Lab Tasks.</p>
+  </div>
+</body>
+</html>

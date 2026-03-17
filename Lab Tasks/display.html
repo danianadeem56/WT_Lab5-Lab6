@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSS Layout Techniques and Responsive Design</title>
+<style>
+/* Task 1: Display Property Showcase */
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+h1{
+    text-align: center;
+    font-size: 20px;
+}
+h2 {
+    margin-top: 40px;
+    color: #333;
+}
+li {
+    list-style: none;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+li a {
+    color: black;
+}
+
+li a:hover {
+    color: navy;
+    cursor: pointer;
+}
+
+/* Block, Inline, Inline-Block */
+.block {
+    display: block;
+    width: 100%;
+    background-color: palevioletred;
+    color: white;
+    padding: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.inline {
+    display: inline;
+    background-color: plum;
+    color: white;
+    padding: 10px;
+    margin-right: 5px;
+}
+
+.inline-block {
+    display: inline-block;
+    background-color: rgb(194, 157, 144);
+    width: 300px;
+    height: 80px;
+    margin: 5px;
+    text-align: center;
+    line-height: 80px;
+    color: white;
+}
+
+/* Table Display Without Table Markup */
+.table-conatainer{
+    margin: 40px auto 0;
+    padding: 0 10%;
+}
+.table{
+    width:50%;
+    border-collapse: collapse;
+    border: 2px solid black;
+}
+.table thead{
+    background-color: #2c3e50;
+}
+.table thead tr th{
+    font-size: 14px;
+    font-weight: 600;
+letter-spacing: 0.35px;
+color:white;
+opacity: 1;
+padding: 12px;
+vertical-align: top;
+border: 2px solid black;
+}.table tbody tr td{
+    font-size: 15px;
+    font-weight: normal;
+letter-spacing: 0.35px;
+color:black;
+padding: 8px;
+text-align: center;
+border: 2px solid black;
+}
+ 
+/* Responsive Boxes */
+.responsive-box {
+    display: block;
+    background-color: #e74c3c;
+    color: white;
+    padding: 20px;
+    margin: 10px auto;
+    text-align: center;
+    width: 90%;
+    max-width: 300px;
+}
+
+/* Hidden Elements */
+.hidden-small {
+    display: block;
+    background-color: #9b59b6;
+    color: white;
+    padding: 15px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+/* Media Queries */
+@media (min-width: 600px) {
+    .responsive-box {
+        display: inline-block;
+        width: 45%;
+        margin: 10px 2.5%;
+    }
+}
+
+@media (min-width: 900px) {
+    .responsive-box {
+        width: 30%;
+        margin: 10px 1.5%;
+    }
+}
+
+@media (max-width: 600px) {
+    .hidden-small {
+        display: none; 
+    }
+    .block{
+    width: 90%;
+    }
+    .inline-block {
+        width: 80%;
+        line-height: normal;
+        padding: 10px;
+        margin: 5px auto;
+        display: block;
+    }
+
+    .inline {
+        display: inline;
+        width: 30%;
+        margin: 5px auto;
+    }
+    .table{
+    width: 100%;
+    }
+}
+</style>
+</head>
+<body>
+
+<h1>Task 1: Display Property Showcase</h1>
+<li><a href="/index.html">Home Page</a></li> 
+
+<!-- Block, Inline, Inline-Block -->
+<h2>Block, Inline, Inline-Block</h2>
+<div class="block">This is Block Element</div>
+<div class="block">This is Block Element</div>
+<br><br>
+<div class="inline">This is Inline</div>
+<div class="inline">This is Inline</div>
+<br><br>
+<div class="inline-block">This is Inline-Block Element</div>
+<div class="inline-block">This is Inline-Block Element</div>
+
+<!-- Table Display Without Table Markup -->
+<h2>Table Display Without Table Markup</h2>
+<div class="table-container">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Age</th>
+          <th>City</th>
+        </tr>
+      </thead>
+        <tbody>
+          <tr>
+              <td data-label="Name">Dania</td>
+              <td data-label="Age">20</td>
+              <td data-label="City">Peshawar</td>
+            </tr>
+            <tr>
+                <td data-label="Name">Hibah</td>
+                <td data-label="Age">18</td>
+                <td data-label="City">Karachi</td>
+            </tr>
+            <tr>
+            <td data-label="Name">Ayesha</td>
+            <td data-label="Age">17</td>
+            <td data-label="City">Peshawar</td>
+        </tr>
+            </tbody>
+    </table>
+
+    <!-- Responsive Display Changes -->
+<h2>Responsive Display Changes</h2>
+<div class="responsive-box">This is Responsive Display Changes</div>
+<div class="responsive-box">This is Responsive Display Changes</div>
+<div class="responsive-box">This is Responsive Display Changes</div>
+
+<!-- Hidden Elements -->
+<h2>Hidden Elements</h2>
+<div class="hidden-small">Hidden on screens smaller than 600px</div>
+
+</body>
+</html>

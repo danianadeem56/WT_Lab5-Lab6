@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Layout Techniques and Responsive Design</title>
+    <style>
+      /* Task 17: Responsive Utility Classes*/
+      body {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+      }
+      /* Base utility classes (mobile-first) */
+      h1 {
+        font-size: 20px;
+      }
+      li {
+        list-style: none;
+        margin-bottom: 15px;
+        text-align: center;
+      }
+
+      li a {
+        color: black;
+      }
+
+      li a:hover {
+        color: navy;
+        cursor: pointer;
+      }
+      /* Show/hide utilities */
+      .show-mobile {
+        display: block;
+      }
+      .hide-mobile {
+        display: none;
+      }
+
+      /* Spacing utilities (margin/padding) */
+      .m-5 {
+        margin: 5px;
+      }
+      .mt-10 {
+        margin-top: 10px;
+      }
+      .mb-10 {
+        margin-bottom: 10px;
+      }
+      .p-5 {
+        padding: 5px;
+      }
+      .p-10 {
+        padding: 10px;
+      }
+
+      /* Text alignment */
+      .text-left {
+        text-align: left;
+      }
+      .text-center {
+        text-align: center;
+      }
+      .text-right {
+        text-align: right;
+      }
+
+      /* Flexbox utilities */
+      .flex {
+        display: flex;
+        flex-wrap: wrap;
+      }
+      .flex-column {
+        flex-direction: column;
+      }
+      .justify-center {
+        justify-content: center;
+      }
+      .align-center {
+        align-items: center;
+      }
+
+      /* Tablet (768px and up) */
+      @media screen and (min-width: 768px) {
+        h1 {
+          font-size: 20px;
+        }
+        .show-tablet {
+          display: block;
+        }
+        .hide-tablet {
+          display: none;
+        }
+        .text-md-left {
+          text-align: left;
+        }
+        .text-md-center {
+          text-align: center;
+        }
+        .text-md-right {
+          text-align: right;
+        }
+        .flex-md {
+          display: flex;
+        }
+      }
+
+      /* Small Desktop (1024px and up) */
+      @media screen and (min-width: 1024px) {
+        .show-desktop {
+          display: block;
+        }
+        .hide-desktop {
+          display: none;
+        }
+        .text-lg-left {
+          text-align: left;
+        }
+        .text-lg-center {
+          text-align: center;
+        }
+        .text-lg-right {
+          text-align: right;
+        }
+        .flex-lg {
+          display: flex;
+        }
+      }
+
+      /* Large Desktop (1200px and up) */
+      @media screen and (min-width: 1200px) {
+        .show-xl {
+          display: block;
+        }
+        .hide-xl {
+          display: none;
+        }
+        .text-xl-left {
+          text-align: left;
+        }
+        .text-xl-center {
+          text-align: center;
+        }
+        .text-xl-right {
+          text-align: right;
+        }
+        .flex-xl {
+          display: flex;
+        }
+      }
+
+      /* Accessibility */
+      .utility-box:focus {
+        outline: 2px solid #705754;
+      }
+      .utility-box {
+        background: #2c3e50;
+        color: white;
+        padding: 15px;
+        margin: 10px;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 style="text-align: center">Task 17: Responsive Utility Classes</h1>
+    <li><a href="/index.html">Home Page</a></li>
+
+    <!-- Show/hide demo -->
+    <div class="utility-box show-mobile hide-tablet hide-desktop hide-xl">
+      Visible on Mobile only
+    </div>
+
+    <div class="utility-box show-tablet hide-mobile hide-desktop hide-xl">
+      Visible on Tablet only
+    </div>
+
+    <div class="utility-box show-desktop hide-mobile hide-tablet hide-xl">
+      Visible on Small Desktop only
+    </div>
+
+    <div class="utility-box show-xl hide-mobile hide-tablet hide-desktop">
+      Visible on Large Desktop only
+    </div>
+
+    <!-- Flexbox and spacing demo -->
+    <div class="flex flex-column justify-center align-center p-10">
+      <div class="utility-box m-5">This is flexbox and spacing demo</div>
+      <div class="utility-box m-5">This is flexbox and spacing demo</div>
+      <div class="utility-box m-5">This is flexbox and spacing demo</div>
+    </div>
+
+    <!-- Text alignment demo -->
+    <div class="utility-box text-left mt-10" tabindex="0">
+      Text Alignment left
+    </div>
+    <div class="utility-box text-center mt-10" tabindex="0">
+      Text Alignment center
+    </div>
+    <div class="utility-box text-right mt-10" tabindex="0">
+      Text Alignment right
+    </div>
+  </body>
+</html>

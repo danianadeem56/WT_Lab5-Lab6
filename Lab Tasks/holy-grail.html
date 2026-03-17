@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Layout Techniques and Responsive Design</title>
+
+    <style>
+      /* Task 7: Holy Grail Layout Implementation */
+      body {
+        margin: 0;
+        font-family: Arial;
+      }
+      h1 {
+        text-align: center;
+        margin: 20px;
+      }
+      li {
+        list-style: none;
+        margin-bottom: 15px;
+        text-align: center;
+      }
+
+      li a {
+        color: black;
+      }
+
+      li a:hover {
+        color: navy;
+        cursor: pointer;
+      }
+      /* Buttons */
+      .nav-buttons {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      .nav-buttons a {
+        padding: 10px 15px;
+        background: #2c3e50;
+        color: white;
+        margin: 5px;
+        display: inline-block;
+      }
+
+      /* Sections Common */
+      header,
+      footer {
+        background: #2c3e50;
+        color: white;
+        text-align: center;
+        padding: 15px;
+      }
+      .left {
+        background: #bdc3c7;
+        padding: 15px;
+      }
+      .main {
+        background: #ecf0f1;
+        padding: 15px;
+      }
+      .right {
+        background: #bdc3c7;
+        padding: 15px;
+      }
+
+      /* Layout*/
+      .layout {
+        display: none;
+      }
+
+      /* Show selected layout */
+      #float:target,
+      #flex:target,
+      #grid:target {
+        display: block;
+      }
+
+      /* Float  */
+      .float-container {
+        overflow: hidden;
+      }
+      .float-container .left,
+      .float-container .right {
+        width: 20%;
+        float: left;
+      }
+      .float-container .main {
+        width: 60%;
+        float: left;
+      }
+      @media (max-width: 768px) {
+        .float-container .left,
+        .float-container .main,
+        .float-container .right {
+          width: 100%;
+          float: none;
+        }
+        h1 {
+          font-size: 20px;
+        }
+      }
+
+      /* Flexbox */
+      .flex-container {
+        display: flex;
+        flex-direction: column;
+      }
+      @media (min-width: 768px) {
+        .flex-container {
+          flex-direction: row;
+        }
+        .flex-container .left,
+        .flex-container .right {
+          width: 20%;
+        }
+        .flex-container .main {
+          width: 60%;
+        }
+      }
+
+      /* GRID=*/
+      .grid-container {
+        display: grid;
+        grid-template-areas:
+          "header"
+          "main"
+          "left"
+          "right"
+          "footer";
+      }
+      .grid-container header {
+        grid-area: header;
+      }
+      .grid-container .left {
+        grid-area: left;
+      }
+      .grid-container .main {
+        grid-area: main;
+      }
+      .grid-container .right {
+        grid-area: right;
+      }
+      .grid-container footer {
+        grid-area: footer;
+      }
+
+      @media (min-width: 768px) {
+        .grid-container {
+          grid-template-columns: 20% 60% 20%;
+          grid-template-areas:
+            "header header header"
+            "left main right"
+            "footer footer footer";
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Task 7: Holy Grail Layout Implementation -->
+    <h1>Task 7: Holy Grail Layout</h1>
+    <li><a href="/index.html">Home Page</a></li>
+    <!-- Navigation Buttons -->
+    <div class="nav-buttons">
+      <a href="#float">Float Layout</a>
+      <a href="#flex">Flexbox Layout</a>
+      <a href="#grid">Grid Layout</a>
+    </div>
+
+    <!--float -->
+    <div id="float" class="layout">
+      <header>Float Header</header>
+
+      <div class="float-container">
+        <div class="left">Left Sidebar</div>
+        <div class="main">Main Content</div>
+        <div class="right">Right Sidebar</div>
+      </div>
+
+      <footer>Float Footer</footer>
+    </div>
+
+    <!-- Flexbox -->
+    <div id="flex" class="layout">
+      <header>Flexbox Header</header>
+
+      <div class="flex-container">
+        <div class="left">Left Sidebar</div>
+        <div class="main">Main Content</div>
+        <div class="right">Right Sidebar</div>
+      </div>
+
+      <footer>Flexbox Footer</footer>
+    </div>
+
+    <!-- Grid -->
+    <div id="grid" class="layout">
+      <div class="grid-container">
+        <header>Grid Header</header>
+        <div class="left">Left Sidebar</div>
+        <div class="main">Main Content</div>
+        <div class="right">Right Sidebar</div>
+        <footer>Grid Footer</footer>
+      </div>
+    </div>
+  </body>
+</html>

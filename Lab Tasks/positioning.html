@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Layout Techniques and Responsive Design</title>
+
+    <style>
+      /* Task 3: Positioning Challenge */
+      body {
+        margin-top: 60px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif
+      }
+      .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 60px; 
+      background: #2c3e50;
+      color: white;
+     }
+     .content {
+       margin-top: 70px;
+      }
+      h1{
+        text-align: center;
+        font-size: 20px;
+      }
+      li {
+       list-style: none;
+       margin-bottom: 15px;
+       text-align: center;
+      }
+
+      li a {
+        color: black;
+       }
+
+       li a:hover {
+         color: navy;
+         cursor: pointer;
+       }
+      /* Fixed Header */
+      .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: #2c3e50;
+        color: white;
+        text-align: left;
+      }
+      .header h2 {
+        margin-left: 1%;
+      }
+
+      /* Layout Area */
+      .container {
+        display: flex;
+        margin-top: 70px;
+        padding: 20px;
+      }
+
+      .main {
+        flex: 3;
+        padding: 20px;
+        background: #ecf0f1;
+      }
+
+      .sidebar {
+        flex: 1;
+        padding: 20px;
+        background: #997335;
+      }
+
+      /* Modal Dialog */
+
+      .modal {
+        position: absolute;
+        top: 150px;
+        left: 50%;
+        transform: translateX(-50%); 
+         width: 300px;
+         background: white;
+         padding: 20px;
+         border: 3px solid black;
+         box-shadow: 0 5px 10px rgba(0,0,0,0.5);
+         border-radius: 10px;
+      }
+
+      /* Sticky Sideba */
+
+      .sticky-box {
+        position: sticky;
+        top: 100px;
+        padding: 15px;
+        border: 2px solid black;
+      }
+
+      
+      /* Z-Index Demonstration */
+
+      .layer-container {
+        margin-top: 20px;
+        position: relative;
+        height: 100px;
+      }
+
+      .box1 {
+        position: absolute;
+        top: 10px;
+        left: 20px;
+        width: 150px;
+        height: 150px;
+        background: red;
+        z-index: 1;
+      }
+
+      .box2 {
+        position: absolute;
+        top: 40px;
+        left: 60px;
+        width: 150px;
+        height: 150px;
+        background: rgb(46, 46, 168);
+        z-index: 2;
+      }
+
+      .box3 {
+        position: absolute;
+        top: 50px;
+        left: 100px;
+        width: 150px;
+        height: 150px;
+        background: rgb(73, 168, 73);
+        z-index: 3;
+        color: white;
+        display: flex;
+      }
+
+      /* Responsive Design */
+
+      @media (max-width: 768px) {
+        .header {
+          position: fixed;
+        }
+
+        .container {
+          flex-direction: column;
+        }
+
+        .sidebar {
+          margin-top: 20px;
+        }
+
+        .modal {
+         position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 70%;
+        max-width: 400px;
+        height: auto;
+        padding: 20px;
+        border-radius: 10px;
+  }
+}
+    </style>
+  </head>
+
+    <!-- Task 3 -->
+    <!-- Fixed Header -->
+    <div class="header">
+      <h2>Fixed Header</h2>
+    </div>
+ 
+    <div class="content">
+      <h1>Task 13: Portfolio Layout with Mixed Techniques</h1>
+      <li><a href="/index.html">Home Page</a></li>
+    </div>
+    <div class="container">
+      <!-- Main Content -->
+      <div class="main">
+        <h2>Main Content</h2>
+        <p>
+          This is Main Content. Lorem ipsum dolor sit amet, consectetur
+          adipisicing elit. Natus eligendi facere amet animi? Dicta perspiciatis
+          doloribus consequuntur id dolore eius?
+        </p>
+        <!-- Part 2: Modal Dialog -->
+        <div class="modal">
+          <h3>Modal Dialog</h3>
+          <p>
+            This modal is absolutely positioned. On mobile it becomes full
+            screen.
+          </p>
+        </div>
+
+        <!-- Part 4: Z-index layering -->
+        <h2>Z-Index Layering</h2>
+        <div class="layer-container">
+          <div class="box1">Z-Index Layer 1</div>
+          <div class="box2">Z-Index Layer 2</div>
+          <div class="box3">Z-Index Layer 3</div>
+        </div>
+      </div>
+
+      <!-- Part 3: Sticky Sidebar -->
+      <div class="sidebar">
+        <h3>Sidebar</h3>
+
+        <div class="sticky-box">
+          <p>This is Sticky Element</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

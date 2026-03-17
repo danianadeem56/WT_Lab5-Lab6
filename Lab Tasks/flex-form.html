@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Layout Techniques and Responsive Design</title>
+    <style>
+      body {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        margin: 0;
+        padding: 20px;
+      }
+
+      h1 {
+        text-align: center;
+        margin-bottom: 30px;
+        font-size: 20px;
+      }
+      h2{
+        text-align: center;
+        margin-bottom: 5%;
+      }
+      li {
+        list-style: none;
+        margin-bottom: 20px;
+        text-align: center;
+      }
+
+      li a {
+        color: black;
+      }
+
+      li a:hover {
+        color: navy;
+        cursor: pointer;
+      }
+
+      /* Form Container */
+      .form-container {
+        max-width: 900px;
+        margin: 0 auto;
+        background: #f4f4f4;
+        padding: 25px 30px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+      }
+
+      /* Flexbox for form sections */
+      .form-section {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        margin-bottom: 20px;
+      }
+
+      /* Form controls */
+      .form-control {
+        display: flex;
+        flex-direction: column;
+        flex: 1 1 200px;
+      }
+
+      .form-control.full-width {
+        flex: 1 1 100%;
+      }
+
+      label {
+        margin-bottom: 5px;
+        font-weight: bold;
+      }
+
+      input,
+      select,
+      textarea {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 1rem;
+      }
+
+      textarea {
+        resize: vertical;
+      }
+
+      /* Submit button */
+      button {
+        padding: 12px 20px;
+        border: none;
+        background: #2c3e50;
+        color: white;
+        border-radius: 5px;
+        font-size: 1rem;
+        cursor: pointer;
+        margin: 0 auto; /* Center the button */
+        display: block;
+      }
+
+      /* Responsive Design*/
+      @media (max-width: 600px) {
+        h1 {
+          font-size: 20px;
+        }
+        h2 {
+          text-align: center;
+        }
+        .form-section {
+          flex-direction: column;
+        }
+        .form-control {
+          flex: 1 1 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Task 12 -->
+
+    <h1>Flexbox Form Builder with Responsive Design</h1>
+    <li><a href="/index.html">Home Page</a></li>
+    <form class="form-container">
+      <h2>Registration Form</h2>
+      <!-- Personal Info -->
+      <div class="form-section">
+        <div class="form-control">
+          <label for="fname">Full Name</label>
+          <input type="text" id="fname" placeholder="First Name" />
+        </div>
+        <div class="form-control">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="Email" />
+        </div>
+        <div class="form-control">
+          <label for="phone">Phone</label>
+          <input type="tel" id="phone" placeholder="Phone" />
+        </div>
+      </div>
+
+      <!-- Address -->
+      <div class="form-section">
+        <div class="form-control full-width">
+          <label for="address">Address</label>
+          <textarea
+            id="address"
+            row="3"
+            placeholder="Street, House #, etc."
+          ></textarea>
+        </div>
+        <div class="form-control">
+          <label for="city">City</label>
+          <input type="text" id="city" />
+        </div>
+      </div>
+
+      <!-- Account Preferences -->
+      <div class="form-section">
+        <div class="form-control">
+          <label for="gender">Gender</label>
+          <select id="gender">
+            <option value="">Select Gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div class="form-control">
+          <label for="dob">Date of Birth</label>
+          <input type="date" id="dob" />
+        </div>
+        <div class="form-control">
+          <label for="password">Password</label>
+          <input type="password" id="password" placeholder="Enter Password" />
+        </div>
+      </div>
+
+      <!-- Full width comments -->
+      <div class="form-section">
+        <div class="form-control full-width">
+          <label for="comments">Comments</label>
+          <textarea
+            id="comments"
+            rows="4"
+            placeholder="Your message here..."
+          ></textarea>
+        </div>
+      </div>
+
+      <button type="submit">Submit</button>
+    </form>
+  </body>
+</html>
